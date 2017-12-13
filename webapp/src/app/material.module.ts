@@ -7,6 +7,7 @@ import {
   MatToolbarModule,
   MatProgressBarModule,
   MatSidenavModule,
+  MatCardModule,
   MatButtonModule,
   MatCheckboxModule
 } from '@angular/material';
@@ -19,6 +20,7 @@ import {
     MatToolbarModule,
     MatProgressBarModule,
     MatSidenavModule,
+    MatCardModule,
     MatButtonModule,
     MatCheckboxModule
   ],
@@ -28,6 +30,7 @@ import {
     MatToolbarModule,
     MatProgressBarModule,
     MatSidenavModule,
+    MatCardModule,
     MatButtonModule,
     MatCheckboxModule
   ],

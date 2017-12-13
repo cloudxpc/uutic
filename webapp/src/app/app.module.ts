@@ -3,11 +3,12 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {NgModule} from '@angular/core';
 
 import {MaterialModule} from './material.module';
+import {FlexLayoutModule} from '@angular/flex-layout';
 
 import {AppComponent} from './app.component';
-import { ToolbarComponent } from './toolbar/toolbar.component';
-import { ProgressbarComponent } from './progressbar/progressbar.component';
-import { MainComponent } from './main/main.component';
+import {ToolbarComponent} from './toolbar/toolbar.component';
+import {ProgressbarComponent} from './progressbar/progressbar.component';
+import {MainComponent} from './main/main.component';
 
 
 @NgModule({
@@ -20,7 +21,8 @@ import { MainComponent } from './main/main.component';
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
-    MaterialModule
+    MaterialModule,
+    FlexLayoutModule
   ],
   providers: [],
   bootstrap: [AppComponent]

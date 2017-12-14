@@ -4,11 +4,15 @@ import {NgModule} from '@angular/core';
 
 import {MaterialModule} from './material.module';
 import {FlexLayoutModule} from '@angular/flex-layout';
+import {AppRoutingModule} from './app-routing.module';
+
 
 import {AppComponent} from './app.component';
 import {ToolbarComponent} from './toolbar/toolbar.component';
 import {ProgressbarComponent} from './progressbar/progressbar.component';
 import {MainComponent} from './main/main.component';
+import { NotFoundComponent } from './not-found/not-found.component';
+import { FooterComponent } from './footer/footer.component';
 
 
 @NgModule({
@@ -16,13 +20,16 @@ import {MainComponent} from './main/main.component';
     AppComponent,
     ToolbarComponent,
     ProgressbarComponent,
-    MainComponent
+    MainComponent,
+    NotFoundComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     MaterialModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]

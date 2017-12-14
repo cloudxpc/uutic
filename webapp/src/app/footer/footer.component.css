@@ -1,0 +1,24 @@
+.footer {
+  background-color: #3f51b5;
+  color: hsla(0, 0%, 100%, .87);
+  margin-top: 40px;
+  padding: 12px;
+  font-size: 12px;
+}
+
+.column {
+  padding: 0 10px;
+}
+
+.info{
+  margin-top: 10px;
+}
+
+.copy-right{
+  text-align: center;
+}
+
+.copy-right p {
+  margin-top: 12px;
+  margin-bottom: 0px;
+}

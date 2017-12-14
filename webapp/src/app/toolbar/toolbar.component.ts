@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import {ToolbarService} from "./toolbar.service";
+
+import 'rxjs/add/operator/switchMap';
 
 @Component({
   selector: 'app-toolbar',
@@ -7,9 +10,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ToolbarComponent implements OnInit {
 
-  constructor() { }
+  constructor(private service: ToolbarService) { }
 
   ngOnInit() {
   }
 
+  test(){
+    this.service.test().subscribe(value => console.log(value));
+  }
 }

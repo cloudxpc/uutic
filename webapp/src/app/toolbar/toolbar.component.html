@@ -1,11 +1,11 @@
 <mat-toolbar color="primary" class="uutic-toolbar">
   <span style="padding-left: 16px; padding-right: 16px;">测试网站</span>
 
-  <button mat-button [matMenuTriggerFor]="rootMenu">首页</button>
+  <button mat-button routerLink="/">首页</button>
+  <button mat-button routerLink="/hero">菜单</button>
+  <button mat-button [matMenuTriggerFor]="rootMenu">菜单</button>
   <button mat-button>菜单</button>
-  <button mat-button>菜单</button>
-  <button mat-button>菜单</button>
-  <button mat-button>菜单</button>
+  <button mat-button (click)="test()">菜单</button>
 
   <div fxFlex></div>
 

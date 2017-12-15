@@ -2,11 +2,11 @@ import {NgModule} from '@angular/core';
 
 import {RouterModule, Routes} from '@angular/router';
 
-import {MainComponent} from './main/main.component';
-import {NotFoundComponent} from './not-found/not-found.component';
+import {NotFoundComponent} from './main/not-found/not-found.component';
+import {WelcomeComponent} from "./main/welcome/welcome.component";
 
 const appRoutes: Routes = [
-  {path: '', component: MainComponent},
+  {path: '', component: WelcomeComponent},
   // { path: '', redirectTo: '/main', pathMatch: 'full'},
   {path: '**', component: NotFoundComponent}
 ];

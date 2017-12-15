@@ -4,7 +4,7 @@ import {
   HttpEvent, HttpInterceptor, HttpHandler, HttpRequest, HttpResponse,
   HttpErrorResponse
 } from '@angular/common/http';
-import {ProgressbarService} from "./progressbar/progressbar.service";
+import {ProgressbarService} from "./header/progressbar/progressbar.service";
 
 import 'rxjs/add/operator/do';
 import 'rxjs/add/operator/catch';

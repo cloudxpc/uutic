@@ -10,13 +10,15 @@ import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {AppInterceptor} from './app-interceptor';
 
 import {AppComponent} from './app.component';
-import {ToolbarComponent} from './toolbar/toolbar.component';
-import {ProgressbarComponent} from './progressbar/progressbar.component';
+import {ToolbarComponent} from './header/toolbar/toolbar.component';
+import {ProgressbarComponent} from './header/progressbar/progressbar.component';
 import {MainComponent} from './main/main.component';
-import {NotFoundComponent} from './not-found/not-found.component';
+import {NotFoundComponent} from './main/not-found/not-found.component';
 import {FooterComponent} from './footer/footer.component';
-import { ProgressbarService } from './progressbar/progressbar.service';
-import { ToolbarService } from './toolbar/toolbar.service';
+import { ProgressbarService } from './header/progressbar/progressbar.service';
+import { ToolbarService } from './header/toolbar/toolbar.service';
+import { HeaderComponent } from './header/header.component';
+import { WelcomeComponent } from './main/welcome/welcome.component';
 
 
 @NgModule({
@@ -26,7 +28,9 @@ import { ToolbarService } from './toolbar/toolbar.service';
     ProgressbarComponent,
     MainComponent,
     NotFoundComponent,
-    FooterComponent
+    FooterComponent,
+    HeaderComponent,
+    WelcomeComponent
   ],
   imports: [
     BrowserModule,

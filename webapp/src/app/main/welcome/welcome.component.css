@@ -1,27 +1,25 @@
 
 .welcome-header {
   background-color: #3f51b5;
-  text-align: center;
-  padding-top: 64px;
+  padding: 124px 0 60px 0;
 }
 
-.welcome-header-section {
-  padding-top: 60px;
+.welcome-header-text {
   color: hsla(0, 0%, 100%, .87);
 }
 
-.welcome-header-section h1 {
+.welcome-header-text h1 {
   font-size: 56px;
   font-weight: 300;
   line-height: 56px;
   margin: 15px 5px;
 }
 
-.welcome-header-section h2 {
+.welcome-header-text h2 {
   font-size: 18px;
   font-weight: 300;
   line-height: 28px;
-  margin: 15px 0 25px 0;
+  margin: 15px 5px;
 }
 
 .featurette {

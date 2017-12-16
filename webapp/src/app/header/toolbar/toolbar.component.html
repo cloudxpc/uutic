@@ -2,9 +2,7 @@
   <span class="logo">
     <a routerLink="/">柚柚网络</a>
   </span>
-  <button mat-button routerLink="/hero">菜单</button>
-  <button mat-button [matMenuTriggerFor]="rootMenu">菜单</button>
-  <button mat-button>菜单</button>
+  <button mat-button routerLink="/business">商业合作</button>
   <button mat-button (click)="test()">联系我们</button>
 
   <div fxFlex></div>
@@ -16,14 +14,14 @@
 </mat-toolbar>
 
 <mat-menu #rootMenu="matMenu" [overlapTrigger]="false">
-  <button mat-menu-item [matMenuTriggerFor]="subMenu">Power</button>
-  <button mat-menu-item>System settings</button>
+  <button mat-menu-item [matMenuTriggerFor]="subMenu">一级菜单1</button>
+  <button mat-menu-item>一级菜单2</button>
 </mat-menu>
 
 <mat-menu #subMenu="matMenu">
-  <button mat-menu-item>Shut down</button>
-  <button mat-menu-item>Restart</button>
-  <button mat-menu-item>Hibernate</button>
+  <button mat-menu-item>二级菜单1</button>
+  <button mat-menu-item>二级菜单2</button>
+  <button mat-menu-item>二级菜单3</button>
 </mat-menu>
 
 

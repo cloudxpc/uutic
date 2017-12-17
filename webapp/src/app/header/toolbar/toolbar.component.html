@@ -3,7 +3,7 @@
     <a routerLink="/">柚柚网络</a>
   </span>
   <button mat-button routerLink="/business">商业合作</button>
-  <button mat-button (click)="test()">联系我们</button>
+  <button mat-button [matMenuTriggerFor]="wxMenu">官方微信</button>
 
   <div fxFlex></div>
 
@@ -25,3 +25,6 @@
 </mat-menu>
 
 
+<mat-menu #wxMenu="matMenu" [overlapTrigger]="false">
+  <img src="assets/wx.jpg"/>
+</mat-menu>

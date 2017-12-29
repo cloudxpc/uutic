@@ -1,19 +1,46 @@
 package com.uutic.website.controller;
 
+import com.auth0.jwt.JWT;
+import com.auth0.jwt.algorithms.Algorithm;
+import com.auth0.jwt.exceptions.JWTCreationException;
 import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.type.TypeFactory;
 import com.uutic.website.model.User;
+import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.io.IOException;
+import java.io.UnsupportedEncodingException;
+import java.util.Calendar;
 import java.util.List;
 
 @RestController
 public class MainController {
+    @RequestMapping(value = "/login")
+    public String login() {
+        String secret = "secret";
+        Calendar issueAt = Calendar.getInstance();
+        Calendar expireAt = Calendar.getInstance();
+        expireAt.add(Calendar.MINUTE, 1);
+        try {
+            Algorithm algorithm = Algorithm.HMAC256(secret);
+            String token = JWT.create()
+                    .withIssuer("uutic")
+                    .withIssuedAt(issueAt.getTime())
+//                    .withExpiresAt(expireAt.getTime())
+                    .sign(algorithm);
+            return token;
+        } catch (UnsupportedEncodingException | JWTCreationException e) {
+            e.printStackTrace();
+        }
+        return "";
+    }
+
     @RequestMapping(value = "/api/hello")
     public List<User> hello() throws InterruptedException, IOException {
+        LoggerFactory.getLogger(MainController.class).info("hello called");
         Thread.sleep(5000);
         ObjectMapper mapper = new ObjectMapper();
         mapper.configure(JsonParser.Feature.ALLOW_UNQUOTED_FIELD_NAMES, true);

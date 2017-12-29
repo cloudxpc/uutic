@@ -7,6 +7,7 @@ export default {
     Vue.prototype.$axios = axios;
 
     axios.defaults.baseURL = 'http://localhost:8080/api';
+    axios.defaults.headers.common['Authorization'] = 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJ1dXRpYyIsImlhdCI6MTUxNDUyNTA4Mn0.4D9_rMTA1lRFuiXbQyJ1OWy3OQaHtN7eaFAdhDzE64I';
 
     // Add a request interceptor
     axios.interceptors.request.use(config => {

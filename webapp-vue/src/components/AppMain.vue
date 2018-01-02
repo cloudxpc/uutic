@@ -1,8 +1,6 @@
 <template>
   <main>
-    <md-content>
-      <router-view></router-view>
-    </md-content>
+    <router-view></router-view>
   </main>
 </template>
 

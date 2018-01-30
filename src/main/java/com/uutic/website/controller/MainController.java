@@ -7,10 +7,15 @@ import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.type.TypeFactory;
 import com.uutic.website.model.User;
+import com.uutic.website.util.CaptchaCodeUtil;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.imageio.ImageIO;
+import javax.servlet.ServletOutputStream;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.util.Calendar;
@@ -18,6 +23,20 @@ import java.util.List;
 
 @RestController
 public class MainController {
+    @RequestMapping("/captchacode")
+    public void verificationCode(HttpServletRequest request, HttpServletResponse response) throws IOException {
+        CaptchaCodeUtil.CaptchaCodeModel captchaCodeModel = CaptchaCodeUtil.getCode();
+        request.getSession().setAttribute("captcha_code", captchaCodeModel.getCaptchaCode());
+        // Disable caching
+        response.setHeader("Pragma", "no-cache");
+        response.setHeader("Cache-Control", "no-cache");
+        response.setDateHeader("Expires", 0);
+
+        ServletOutputStream servletOutputStream=response.getOutputStream();
+        ImageIO.write(captchaCodeModel.getCaptchaImage(), "jpeg", servletOutputStream);
+        servletOutputStream.close();
+    }
+
     @RequestMapping(value = "/login")
     public String login() {
         String secret = "secret";

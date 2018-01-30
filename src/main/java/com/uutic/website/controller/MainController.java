@@ -10,14 +10,17 @@ import com.uutic.website.model.User;
 import com.uutic.website.util.CaptchaCodeUtil;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.imageio.ImageIO;
 import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
+import java.util.Base64;
 import java.util.Calendar;
 import java.util.List;
 
@@ -35,6 +38,16 @@ public class MainController {
         ServletOutputStream servletOutputStream=response.getOutputStream();
         ImageIO.write(captchaCodeModel.getCaptchaImage(), "jpeg", servletOutputStream);
         servletOutputStream.close();
+    }
+
+    @RequestMapping(value = "/captcha", method = RequestMethod.GET)
+    public String captchaCode(HttpServletRequest request) throws IOException {
+        CaptchaCodeUtil.CaptchaCodeModel captchaCodeModel = CaptchaCodeUtil.getCode();
+        request.getSession().setAttribute("captcha_code", captchaCodeModel.getCaptchaCode());
+        ByteArrayOutputStream os = new ByteArrayOutputStream();
+        ImageIO.write(captchaCodeModel.getCaptchaImage(), "gif", os);
+        String base64 = Base64.getEncoder().encodeToString(os.toByteArray());
+        return "data:image/gif;base64," + base64;
     }
 
     @RequestMapping(value = "/login")
